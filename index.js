@@ -91,7 +91,7 @@ function replace(item) {
   saveIndex(indexItem);
   del(item.path);
   console.log({
-    order: indexItem.props.order,
+    order: indexItem.props?.order ?? "not set",
     save: indexItem.path,
     detele: item.path,
   });
