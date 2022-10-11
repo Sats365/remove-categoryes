@@ -83,7 +83,9 @@ function replace(item) {
   if (exists(indexItem.path)) {
     md = matter(read(indexItem.path), {});
     indexItem.content = md.content;
-    indexItem.props = { ...md.data, ...indexItem.props };
+    const order = indexItem.props?.order ?? 0;
+    indexItem.props = { ...indexItem.props, ...md.data };
+    if (order) indexItem.order = order;
   }
 
   saveIndex(indexItem);
