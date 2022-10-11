@@ -85,14 +85,15 @@ function replace(item) {
     indexItem.content = md.content;
     const order = indexItem.props?.order ?? 0;
     indexItem.props = { ...indexItem.props, ...md.data };
-    if (order) indexItem.order = order;
+    if (order) indexItem.props.order = order;
   }
 
   saveIndex(indexItem);
   del(item.path);
   console.log({
-    detele: item.path,
+    order: indexItem.props.order,
     save: indexItem.path,
+    detele: item.path,
   });
 }
 
